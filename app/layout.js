@@ -1,5 +1,6 @@
 // app/layout.js
 import '../styles/globals.css';
+import ClientWrapper from './ClientWrapper';
 
 export const metadata = {
   title: 'Senior Sense – Coming Soon',
@@ -10,9 +11,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="site-wrapper">{children}</div>
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
       </body>
     </html>
   );
 }
-
