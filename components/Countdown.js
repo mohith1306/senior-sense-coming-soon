@@ -1,6 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
-
+import '../styles/globals.css';
+import { useEffect, useState} from 'react';
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0,seconds:0 });
 
@@ -21,8 +21,25 @@ export default function Countdown() {
   }, []);
 
   return (
-    <p>
-      Launching in {timeLeft.days} days, {timeLeft.hours} hours, {timeLeft.minutes} minutes and {timeLeft.seconds} seconds.
-    </p>
+  
+      <div className="timer">
+        <div className="timer-box">
+        <div className="timer-number" id="days">12</div>
+        <div className="timer-label">Days</div>
+        </div>
+      <div className="timer-box">
+        <div className="timer-number" id="hours">08</div>
+        <div className="timer-label">Hours</div>
+      </div>
+      <div className="timer-box">
+        <div className="timer-number" id="minutes">45</div>
+        <div className="timer-label">Minutes</div>
+      </div>
+      <div className="timer-box">
+        <div className="timer-number" id="seconds">23</div>
+        <div className="timer-label">Seconds</div>
+      </div>
+    </div>
+
   );
 }
