@@ -1116,23 +1116,44 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+/* body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, var(--bg), var(--bg-secondary));
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
-}
-/* 
-img {
-  max-width: 100%;
-  display: block;
+  background-image: url("/public/images/senior.jpg");
 } */
+/* body {
+font-family: 'Inter', sans-serif;
+background: linear-gradient(135deg, var(--bg), var(--bg-secondary));
+background-image: url("/images/senior.jpg");
+background-size: cover;
+color: var(--text);
+line-height: 1.6;
+overflow-x: hidden;
+} */
+body {
+  font-family: 'Inter', sans-serif;
 
+  background: linear-gradient(
+                rgba(15, 23, 42, 0.6),
+                rgba(15, 23, 42, 0.6)
+              ),
+              url("/images/senior.jpg") no-repeat center center;
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 .custom-cursor {
   width: 16px;
   height: 16px;
-  background: rgba(37, 99, 235, 0.8); /* blue glow */
+  background: rgba(37, 99, 235, 0.8);
   border-radius: 50%;
   position: fixed;
   transform: translate(-50%, -50%);
@@ -1142,14 +1163,12 @@ img {
   z-index: 9999;
 }
 
-/* Grow effect when hovering over buttons or links */
 button:hover ~ #custom-cursor,
 a:hover ~ #custom-cursor {
   transform: translate(-50%, -50%) scale(2);
   background: rgba(255, 255, 255, 0.8);
 }
 
-/* ===== Logo Styling ===== */
 .logo {
   display: inline-flex;
   align-items: center;
@@ -1177,13 +1196,12 @@ a:hover ~ #custom-cursor {
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
-
-/* ===== Timer Styling ===== */
-.timer {
+/* .timer {
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  flex-wrap: wrap; 
 }
 
 .timer-box {
@@ -1195,7 +1213,30 @@ a:hover ~ #custom-cursor {
   min-width: 80px;
   backdrop-filter: blur(10px);
   transition: transform var(--transition), box-shadow var(--transition);
+} */
+ .timer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap; /* allow wrapping if small screen */
+  margin-top: 2rem;
 }
+
+.timer-box {
+  background: rgba(30, 41, 59, 0.7);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  min-width: 100px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .timer-box:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -1461,4 +1502,103 @@ input:focus, textarea:focus {
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.4); }
   50% { box-shadow: 0 0 0 10px rgba(59,130,246,0); }
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 1024px) {
+  .timer {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .waitlist input[type="email"] {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .waitlist button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
+  }
+
+  .feature-list,
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .timer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timer-box {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .hero-title,
+  h1, h2, h3 {
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .btn, .btn-outline, .btn-gradient {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .waitlist input[type="email"] {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .footer a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+@media (max-width: 480px) {
+  .timer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 }

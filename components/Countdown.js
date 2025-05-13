@@ -24,19 +24,19 @@ export default function Countdown() {
   
       <div className="timer">
         <div className="timer-box">
-        <div className="timer-number" id="days">12</div>
+        <div className="timer-number" id="days">{timeLeft.days}</div>
         <div className="timer-label">Days</div>
         </div>
       <div className="timer-box">
-        <div className="timer-number" id="hours">08</div>
+        <div className="timer-number" id="hours">{timeLeft.hours}</div>
         <div className="timer-label">Hours</div>
       </div>
       <div className="timer-box">
-        <div className="timer-number" id="minutes">45</div>
+        <div className="timer-number" id="minutes">{timeLeft.minutes}</div>
         <div className="timer-label">Minutes</div>
       </div>
       <div className="timer-box">
-        <div className="timer-number" id="seconds">23</div>
+        <div className="timer-number" id="seconds">{timeLeft.seconds}</div>
         <div className="timer-label">Seconds</div>
       </div>
     </div>
